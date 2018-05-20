@@ -1,10 +1,10 @@
 
 from django import forms
 
-from Evaluation.models import User
+from Evaluation.models import SystemUser
 
 
 class UserForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = SystemUser
         fields = ['personal_code', 'password', 'first_name', 'last_name']

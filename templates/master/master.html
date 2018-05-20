@@ -8,25 +8,25 @@
 
 
 {% block menu %}
-    <li>
-        <a href="#">واحد</a>
-          <ul class="noJS">
-            <li><a href="{% url 'master:view_employees' %}">مشاهده کارمندان</a></li>
-              <li><a href="{% url 'master:view_evaluator' %}">مشاهده ارزیابی کنندگان</a></li>
-
-            <li><a href="{% url 'master:add_evaluator' %}">افزودن ارزیابی کننده</a></li>
-               <li><a href="{% url 'master:add_employee' %}">افزودن کارمند</a></li>
-              <li><a href="{% url 'master:view_re-evaluation_request' %}">مشاهده درخواست های ارزیابی مجدد</a></li>
-          </ul>
-    </li>
-    <li>
-        <a href="#">معیار</a>
-          <ul class="noJS">
-            <li><a href="{% url 'master:view_criteria' %}">مشاهده معیارها</a></li>
-
-          </ul>
-    </li>
-    <li><a href="/logout/">خروج</a></li>
+{#    <li>#}
+{#        <a href="#">واحد</a>#}
+{#          <ul class="noJS">#}
+{#            <li><a href="{% url 'master:view_employees' %}">مشاهده کارمندان</a></li>#}
+{#              <li><a href="{% url 'master:view_evaluator' %}">مشاهده ارزیابی کنندگان</a></li>#}
+{##}
+{#            <li><a href="{% url 'master:add_evaluator' %}">افزودن ارزیابی کننده</a></li>#}
+{#               <li><a href="{% url 'master:add_employee' %}">افزودن کارمند</a></li>#}
+{#              <li><a href="{% url 'master:view_re-evaluation_request' %}">مشاهده درخواست های ارزیابی مجدد</a></li>#}
+{#          </ul>#}
+{#    </li>#}
+{#    <li>#}
+{#        <a href="#">معیار</a>#}
+{#          <ul class="noJS">#}
+{#            <li><a href="{% url 'master:view_criteria' %}">مشاهده معیارها</a></li>#}
+{##}
+{#          </ul>#}
+{#    </li>#}
+{#    <li><a href="/logout/">خروج</a></li>#}
 {% endblock menu %}
 
 

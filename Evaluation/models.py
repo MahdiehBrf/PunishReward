@@ -1,17 +1,21 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from django.db import models
 
 # Create your models here.
 
 
-class User(AbstractUser):
-    personal_code = models.PositiveIntegerField(max_length=100, primary_key=True, verbose_name='کاربر')
+class SystemUser(User):
+    personal_code = models.PositiveIntegerField(primary_key=True, verbose_name='کد-پرسنلی')
+    pass
 
 
-class Employee(User):
+class Employee(SystemUser):
     pass
-class Master(User):
+
+
+class Master(SystemUser):
     pass
+
 
 class Manager(Employee):
     pass
@@ -22,18 +26,21 @@ class NormalEmployee(Employee):
 
 
 class EmployeeCatalogue(models.Model):
+    unit_employees = []
 
-
-    def add_employee(self, role, unit, user_form):
-        new_employee = None
-        if role == "Manager":
-            new_employee = Manager()
+    def add_employee(self, role, user_form):
+        if user_form.is_valid():
+            if role == "Manager":
+                new_employee = Manager(**user_form.cleaned_data)
+            else:
+                new_employee = NormalEmployee(**user_form.cleaned_data)
+            new_employee.save()
+            self.unit_employees.append(new_employee)
         else:
-            new_employee = NormalEmployee()
-        self.unit_employees.append(new_employee)
+            pass
 
 
 class Unit(models.Model):
-    employee_catalogue = models.OneToOneField(EmployeeCatalogue,
-        on_delete=models.CASCADE,
-        )
+    employee_catalogue = models.OneToOneField(EmployeeCatalogue, on_delete=models.CASCADE)
+    unit_number = models.PositiveIntegerField(primary_key=True,verbose_name='شماره-واحد')
+
