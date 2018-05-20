@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>سامانه پاداش و تنبیه</title>
+{% endblock title %}
+
+{% block special_static %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+{% endblock special_static %}
+
+{% block body_block %}
+    <div class="container">
+        <div class="row full">
+
+            <div class="col-sm-3 full main_menu">
+                <div class="sidebar-nav full">
+                    <div class="navbar navbar-default full" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                    data-target=".sidebar-navbar-collapse"><img src="{% static 'images/menu.png' %}"
+                                                                                height="40" width="40">
+                            </button>
+                            <span class="visible-xs navbar-brand"></span>
+                        </div>
+                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                            <ul id="MainMenu" class="nav navbar-nav">
+                                {% block menu %}
+                                {% endblock menu %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8  main_content">
+                {% block content %}
+                {% endblock content %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock body_block %}

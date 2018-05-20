@@ -1,0 +1,105 @@
+{% extends 'employee/employee.html' %}
+
+
+
+
+
+{% block special_static %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/table.css" %}"/>
+{#    <link rel="stylesheet" type="text/css" href="{% static "css/table_5_columns.css" %}"/>#}
+    <script>
+    $(function() {
+        $("tr").click(function(e) { // limit click to children of mainmenue
+            $("#actions").removeClass('hide').addClass('show');
+            var name = $(this).find('td').get(2).innerHTML;
+            console.log(name);
+            $('.overlay').css("opacity", "0.5");
+            document.getElementById('criterion').innerHTML = name;
+            e.stopPropagation();
+        });
+        $(document).on('click','*',function(e){
+            e.stopPropagation();
+
+            $("#actions").removeClass('show').addClass('hide');
+            $('.overlay').css("opacity", "1");
+        });
+
+
+    });
+    </script>
+{% endblock special_static %}
+
+
+{% block content %}
+    <h2 class="page_title">لیست کارمندان</h2>
+    <div class="cont">
+       <table class="overlay">
+                        <tr>
+                            <th>ردیف</th>
+                            <th>نام معیار</th>
+                            <th>فرمول</th>
+                            <th>متغیرها</th>
+                            <th>نتیجه ارزیابی</th>
+                            <th>درخواست بازنگری</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>حقوق</td>
+                            <td>ساعت فوق العاده +‌ ساعت کاری در یک روز</td>
+                            <td>
+                                <table class="in_line_table">
+                                <tr><td>ساعت فوق العاده</td></tr>
+                                <tr><td>ساعت کاری در یک روز</td></tr>
+                                </table>
+                            </td>
+                            <td><input type="number" disabled placeholder="5" style="margin:auto;width:100px" class="form-control" id="input_number" name="input_number"/></td>
+                            <td><button type="button" id="check" style="float: none" name="check" class="btn btn-default btn-lg" onclick="window.location.href='{% url 'employee:review_request' %}'">ایجاد</button></td></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>حقوق</td>
+                            <td>ساعت فوق العاده +‌ ساعت کاری در یک روز</td>
+                            <td>
+                                <table class="in_line_table">
+                                <tr><td>ساعت فوق العاده</td></tr>
+                                <tr><td>ساعت کاری در یک روز</td></tr>
+                                </table>
+                            </td>
+                            <td><input type="number" disabled placeholder="6" style="margin:auto;width:100px" class="form-control" id="input_number" name="input_number"/></td>
+                            <td><button type="button" id="check" style="float: none" name="check" class="btn btn-default btn-lg" onclick="window.location.href='{% url 'employee:review_request' %}'">ایجاد</button></td></td>
+
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>حقوق</td>
+                            <td>ساعت فوق العاده +‌ ساعت کاری در یک روز</td>
+                            <td>
+                                <table class="in_line_table">
+                                <tr><td>ساعت فوق العاده</td></tr>
+                                <tr><td>ساعت کاری در یک روز</td></tr>
+                                </table>
+                            </td>
+                            <td><input type="number" disabled placeholder="7" style="margin:auto;width:100px" class="form-control" id="input_number" name="input_number"/></td>
+                            <td><button type="button" id="check" style="float: none" name="check" class="btn btn-default btn-lg" onclick="window.location.href='{% url 'employee:review_request' %}'">ایجاد</button></td></td>
+
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>حقوق</td>
+                            <td>ساعت فوق العاده +‌ ساعت کاری در یک روز</td>
+                            <td>
+                                <table class="in_line_table">
+                                <tr><td>ساعت فوق العاده</td></tr>
+                                <tr><td>ساعت کاری در یک روز</td></tr>
+                                </table>
+                            </td>
+                            <td><input type="number" disabled placeholder="8" style="margin:auto;width:100px" class="form-control" id="input_number" name="input_number"/></td>
+                            <td><button type="button" id="check" style="float: none" name="check" class="btn btn-default btn-lg" onclick="window.location.href='{% url 'employee:review_request' %}'">ایجاد</button></td></td>
+
+                        </tr>
+                    </table>
+    </div>
+
+{% endblock content %}

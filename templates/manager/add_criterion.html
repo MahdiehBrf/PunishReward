@@ -1,0 +1,35 @@
+{% extends 'manager/manager.html' %}
+
+
+{% block special_static %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/form.css" %}"/>
+{% endblock special_static %}
+
+
+{% block content %}
+    <h2 class="page_title">افزودن معیار</h2>
+    <div class="col-md-8 center_view">
+        <div class="form-area">
+            <form role="form">
+                <br style="clear:both">
+                <div class="form-group">
+                    <label for="name">نام معیار</label><input type="text" class="form-control" id="name" name="name"/>
+                </div>
+                <div class="form-group">
+                    <label for="punish_reward"> نوع
+                    </label>
+                    <select name="punish_reward" class="form-control">
+                        <option value="reward">کمی</option>
+                        <option value="punish">کیفی</option>
+                        <option value="punish">کمی-کیفی</option>
+                    </select>
+                </div>
+
+                <button type="button" id="submit" name="submit" class="btn btn-default btn-lg">ذخیره</button>
+                <a href="{% url 'master:criterion_page' %}" type="button" class="btn btn-default btn-lg">بازگشت</a>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
